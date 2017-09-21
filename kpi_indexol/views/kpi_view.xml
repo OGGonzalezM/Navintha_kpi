@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="kpi_form_view">
+			<field name="name">indicadores.form.view</field>
+			<field name="model">kpi.campos</field>
+			<field name="arch" type="xml">
+				<form string="Indicadores">
+					<sheet>
+						<div class="row">
+							<div class="col-md-9">
+								<label for="name"></label>
+								<field name="name"></field>
+							
+								<label for="responsable"></label>
+								<field name="responsable" options="{'no_create': True}"></field>
+							
+								<label for="indicador"></label>
+								<field name="indicador"></field>
+							
+								<label for="calculo"></label>
+								<field name="calculo"></field>
+							
+								<label for="meta"></label>
+								<field name="meta"></field>
+							</div>
+							<div class="col-md-3">
+								<label for="fecha_emision"></label>
+								<br/>
+								<field name="fecha_emision"></field>
+
+								<br/>
+								<label for="fecha_actualizacion"></label>
+								<field name="fecha_actualizacion"></field>
+							</div>
+						</div>
+						<div class="row">
+							<div class="text-center">
+								<h2>
+									Real
+									<field name="anio"></field>
+								</h2>
+							</div>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-1">
+									<label for="mesagosto"></label>
+									<field name="mesagosto"></field>
+								</div>
+								
+								<div class="col-md-1">
+									<label for="messeptiembre"></label>
+									<field name="messeptiembre"></field>
+								</div>
+								
+								<div class="col-md-1">
+									<label for="mesoctubre"></label>
+									<field name="mesoctubre"></field>
+								</div>
+								
+								<div class="col-md-1">
+									<label for="mesnoviembre"></label>
+									<field name="mesnoviembre"></field>
+								</div>
+								
+								<div class="col-md-1">
+									<label for="mesdiciembre"></label>
+									<field name="mesdiciembre"></field>
+								</div>
+								
+								<div class="col-md-1">
+									<label for="mesenero"></label>
+									<field name="mesenero"></field>
+								</div>
+								
+								<div class="col-md-1">
+									<label for="mesfebrero"></label>
+									<field name="mesfebrero"></field>
+								</div>
+							
+								<div class="col-md-1">
+									<label for="mesmarzo"></label>
+									<field name="mesmarzo"></field>
+								</div>
+								<div class="col-md-1">
+									<label for="mesabril"></label>
+									<field name="mesabril"></field>
+								</div>
+								<div class="col-md-1">
+									<label for="mesmayo"></label>
+									<field name="mesmayo"></field>
+								</div>
+								<div class="col-md-1">
+									<label for="mesjunio"></label>
+									<field name="mesjunio"></field>
+								</div>
+								<div class="col-md-1">
+									<label for="mesjulio"></label>
+									<field name="mesjulio"></field>
+								</div>
+							</div>
+						</div>
+						<br/>
+						<div class="row">
+							<div class="text-center">
+								<h3>Qué hacer en caso de incumplimiento</h3>
+							</div>
+							<field name="encasoincumplimiento">
+								<tree>
+									<field name="fecha_incumplimiento"></field>
+									<field name="name"></field>
+									<field name="accion_incumplimiento"></field>
+									<field name="responsable_incumplimiento"></field>
+								</tree>
+							</field>
+						</div>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="id_graph_view">
+			<field name="name">indicadores.graph.view</field>
+			<field name="model">kpi.campos</field>
+			<field name="arch" type="xml">
+				<graph string="" type="line">
+					<field name="meta" type="measure"></field>
+					<field name="mesagosto"></field>
+					<field name="messeptiembre"></field>
+					<field name="mesoctubre"></field>
+					<field name="mesnoviembre"></field>
+					<field name="mesdiciembre"></field>
+					<field name="mesenero"></field>
+					<field name="mesfebrero"></field>
+					<field name="mesmarzo"></field>
+					<field name="mesabril"></field>
+					<field name="mesmayo"></field>
+					<field name="mesjunio"></field>
+					<field name="mesjulio"></field>
+				</graph>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="kpi_tree_view">
+			<field name="name">kpi.tree</field>
+			<field name="model">kpi.campos</field>
+			<field name="arch" type="xml">
+				<tree string="Listado de indicadores">
+					<field name="name"></field>
+					<field name="responsable"></field>
+					<field name="indicador"></field>
+					<field name="calculo"></field>
+					<field name="meta"></field>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="kpi_action">
+			<field name="name">Indicadores</field>
+			<field name="res_model">kpi.campos</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Registrar un Indicador
+				</p>
+			</field>
+		</record>
+
+		<menuitem id="kpi_item" action="kpi_action" name="Indicadores" sequence="0" parent="mgmtsystem.menu_mgmtsystem_main"></menuitem>
+
+
+	</data>
+</openerp>
